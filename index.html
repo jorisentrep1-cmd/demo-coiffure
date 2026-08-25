@@ -41,10 +41,16 @@ nav{position:fixed;top:34px;left:0;right:0;z-index:100;height:74px;display:flex;
 .hamburger span{display:block;width:22px;height:1.5px;background:var(--text2)}
 
 /* HERO */
-#hero{min-height:100vh;display:flex;align-items:center;position:relative;overflow:hidden;padding-top:108px}
-.hero-bg{position:absolute;inset:0;background:url('https://images.unsplash.com/photo-1600948836101-f9ffda59d250?auto=format&fit=crop&w=1800&q=80') center/cover}
-.hero-overlay{position:absolute;inset:0;background:linear-gradient(180deg,rgba(43,36,32,.55) 0%,rgba(43,36,32,.72) 100%)}
+#hero{padding-top:108px;background:var(--cream)}
+.hero-mag-photo{width:100%;height:62vh;min-height:420px;background:url('https://images.unsplash.com/photo-1600948836101-f9ffda59d250?auto=format&fit=crop&w=1800&q=80') center/cover}
+.hero-mag-text{max-width:760px;margin:-7rem auto 0;position:relative;z-index:1;background:var(--cream);border-radius:28px 28px 0 0;padding:3.5rem 2.5rem 3rem;text-align:center;box-shadow:0 -25px 50px rgba(43,36,32,.18)}
+.hero-mag-text .hero-eyebrow{color:var(--gold);justify-content:center}
+.hero-mag-text h1.hero-title{color:var(--charcoal)}
+.hero-mag-text .hero-sub{color:var(--text2)}
+.hero-mag-text .btn-s{color:var(--charcoal);border-color:var(--border)}
+.hero-mag-text .btn-s:hover{border-color:var(--charcoal);background:rgba(43,36,32,.05)}
 .hero-inner{max-width:800px;margin:0 auto;padding:4rem 2rem;text-align:center;position:relative;z-index:1;color:#fff}
+@media(max-width:900px){.hero-mag-photo{height:42vh;min-height:280px}.hero-mag-text{margin-top:-4rem;padding:2.5rem 1.5rem 2.5rem;border-radius:22px 22px 0 0}}
 .hero-eyebrow{display:inline-flex;align-items:center;gap:.6rem;font-size:.68rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--gold2);margin-bottom:1.75rem}
 .hero-eyebrow::before,.hero-eyebrow::after{content:'';width:24px;height:1px;background:var(--gold2)}
 h1.hero-title{font-size:clamp(2.6rem,6vw,4.4rem);font-weight:700;line-height:1.1;margin-bottom:1.5rem;letter-spacing:-.5px}
@@ -160,13 +166,12 @@ footer{background:var(--charcoal);padding:3rem 2rem;text-align:center}
 </nav>
 
 <section id="hero">
-  <div class="hero-bg"></div>
-  <div class="hero-overlay"></div>
-  <div class="hero-inner">
+  <div class="hero-mag-photo"></div>
+  <div class="hero-mag-text">
     <div class="hero-eyebrow">Salon de coiffure · Lyon</div>
     <h1 class="hero-title">L'art de sublimer<br/>votre chevelure.</h1>
     <p class="hero-sub">Coupe, coloration, soins et coiffure événementielle dans un cadre chaleureux, au cœur de Lyon.</p>
-    <div class="hero-btns">
+    <div class="hero-btns" style="justify-content:center">
       <a href="tel:+33478000000" class="btn-p">Prendre rendez-vous →</a>
       <a href="#prestations" class="btn-s">Voir nos prestations</a>
     </div>
