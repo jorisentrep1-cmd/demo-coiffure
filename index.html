@@ -4,154 +4,201 @@
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
 <title>Salon Lumière — Coiffeur à Blaye</title>
-<meta name="description" content="Salon de coiffure à Blaye. Les tarifs et les durées annoncés avant de commencer. Coupe, couleur, balayage, chignon."/>
+<meta name="description" content="Salon de coiffure à Blaye : les prix et la durée de chaque prestation affichés, trois postes cours Vauban. Coupe, couleur, balayage, barbier."/>
 <meta name="robots" content="noindex,nofollow"/>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Karla:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Urbanist:wght@400;500;600&display=swap" rel="stylesheet"/>
 <script>try{var t=localStorage.getItem("ns-theme");if(t)document.documentElement.setAttribute("data-theme",t)}catch(e){}</script>
 <style>
 /* ---------------------------------------------------------------
-   Composition : magazine. L'image mène, le texte suit dans une
-   colonne étroite décalée. Rien n'est centré.
+   Registre clair et chaud : un sable dominant, du blanc cassé, un
+   serif ancien en grand et en maigre, et des photos en arche qui
+   chevauchent la couture entre deux blocs -- c'est l'arche qui
+   porte l'identite, pas la couleur.
    --------------------------------------------------------------- */
 :root{
-  --lin:#F2EEE9;
-  --papier:#FBF9F6;
-  --noir:#17151A;
-  --noir-doux:#3A3540;
-  --gris:#655E68;
-  --trait:#DED7D0;
-  --argile:#9E5446;
-  --sur-noir:#F0EBE6;
-  --sur-noir-doux:#ADA3A8;
-  --sur-noir-accent:#D99177;
-  --focus:#9E5446;
+  --sable:#E3D5C9;
+  --sable-clair:#EFE7E0;
+  --creme:#FDFBFA;
+  --blanc:#FFFFFF;
+  --noir:#0B0A09;
+  --gris:#6E6761;          /* texte secondaire sur creme ou blanc */
+  --gris-sable:#57504A;    /* le meme role, mais pose sur le sable */
+  --trait:#DDD3CA;
+  --sur-sable:#0B0A09;
+  --sur-noir:#FDFBFA;
+  --focus:#8C7361;
 }
 @media (prefers-color-scheme:dark){
   :root:not([data-theme="light"]){
-    --lin:#17151A; --papier:#1E1B22; --noir:#F0EBE6; --noir-doux:#CFC7CC;
-    --gris:#9A9199; --trait:#332E38; --argile:#D99177;
-    --sur-noir:#1E1B22; --sur-noir-doux:#4A434E; --sur-noir-accent:#8A422F;
-    --focus:#D99177;
+    --sable:#2C231C;
+    --sable-clair:#241D17;
+    --creme:#181310;
+    --blanc:#1E1814;
+    --noir:#F4EDE6;
+    --gris:#A79C92;
+    --gris-sable:#B5AA9F;
+    --trait:#3A3029;
+    --sur-sable:#F4EDE6;
+    --sur-noir:#181310;
+    --focus:#C9A88F;
   }
 }
 :root[data-theme="dark"]{
-  --lin:#17151A; --papier:#1E1B22; --noir:#F0EBE6; --noir-doux:#CFC7CC;
-  --gris:#9A9199; --trait:#332E38; --argile:#D99177;
-  --sur-noir:#1E1B22; --sur-noir-doux:#4A434E; --sur-noir-accent:#8A422F;
-  --focus:#D99177;
+  --sable:#2C231C;
+  --sable-clair:#241D17;
+  --creme:#181310;
+  --blanc:#1E1814;
+  --noir:#F4EDE6;
+  --gris:#A79C92;
+  --gris-sable:#B5AA9F;
+  --trait:#3A3029;
+  --sur-sable:#F4EDE6;
+  --sur-noir:#181310;
+  --focus:#C9A88F;
 }
 
 *{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth;scroll-padding-top:3.6rem}
-body{background:var(--lin);color:var(--noir-doux);font-family:'Karla',system-ui,sans-serif;font-size:16.5px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
-h1,h2,h3,.se{font-family:'Instrument Serif',Georgia,serif;font-weight:400;color:var(--noir)}
-a{color:var(--argile)}
+html{scroll-behavior:smooth;scroll-padding-top:4.2rem}
+body{background:var(--creme);color:var(--gris);font-family:'Urbanist',system-ui,sans-serif;
+  font-size:15px;line-height:1.62;-webkit-font-smoothing:antialiased}
+h1,h2,h3,.serif{font-family:'Cormorant Garamond',Georgia,serif;color:var(--noir);font-weight:400;letter-spacing:0}
+a{color:var(--noir)}
 :focus-visible{outline:2px solid var(--focus);outline-offset:3px}
 img{max-width:100%;display:block}
-.env{max-width:1180px;margin:0 auto;padding-inline:1.5rem}
+.env{max-width:1180px;margin:0 auto;padding-inline:1.6rem}
 
-.demo{background:var(--noir);color:var(--sur-noir);padding:.5rem 1rem;text-align:center;font-size:.74rem}
-.demo a{color:var(--sur-noir-accent);font-weight:600}
+/* l'arche : la forme qui signe le site */
+.arche{border-radius:50% 50% 8px 8px / 36% 36% 8px 8px;overflow:hidden}
+
+.demo{background:var(--noir);color:var(--sur-noir);padding:.5rem 1rem;text-align:center;font-size:.72rem;letter-spacing:.02em}
+.demo a{color:var(--sur-noir);font-weight:600}
 .demo b{color:var(--sur-noir)}
 
-.barre{position:sticky;top:0;z-index:20;background:var(--lin);border-bottom:1px solid var(--trait)}
-.b-in{display:flex;align-items:center;gap:1.5rem;min-height:3.05rem}
-.b-marque{font-family:'Instrument Serif',serif;font-size:1.3rem;color:var(--noir);text-decoration:none;flex-shrink:0}
-.b-liens{display:flex;gap:1.5rem;margin-left:auto}
-.b-liens a{font-size:.82rem;font-weight:500;color:var(--noir-doux);text-decoration:none;padding-block:.2rem;border-bottom:1.5px solid transparent}
-.b-liens a:hover{color:var(--noir);border-bottom-color:var(--argile)}
-.b-tel{font-size:.86rem;font-weight:700;background:var(--argile);color:var(--papier);text-decoration:none;padding:.44rem 1rem;flex-shrink:0;white-space:nowrap;border-radius:2px}
-.b-tel:hover{background:var(--noir)}
+/* --- barre : marque a gauche, liens au centre, action a droite --- */
+.barre{position:sticky;top:0;z-index:30;background:var(--creme);border-bottom:1px solid var(--trait)}
+.b-in{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:1.5rem;min-height:4.2rem}
+.b-marque{font-family:'Cormorant Garamond',serif;font-size:1.6rem;font-weight:500;color:var(--noir);
+  text-decoration:none;line-height:1;justify-self:start}
+.b-marque small{display:block;font-family:'Urbanist',sans-serif;font-size:.58rem;font-weight:600;
+  letter-spacing:.34em;text-transform:uppercase;color:var(--gris);margin-top:.15rem}
+.b-liens{display:flex;gap:2rem;justify-self:center}
+.b-liens a{font-size:.82rem;font-weight:500;color:var(--gris);text-decoration:none;padding-block:.3rem;border-bottom:1px solid transparent}
+.b-liens a:hover{color:var(--noir);border-bottom-color:var(--noir)}
+.b-droite{display:flex;align-items:center;gap:.8rem;justify-self:end}
+.b-tel{font-size:.68rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;
+  background:var(--noir);color:var(--sur-noir);text-decoration:none;padding:.85rem 1.5rem;border-radius:10px;white-space:nowrap}
+.b-tel:hover{opacity:.82}
 .b-court{display:none}
-@media(max-width:860px){.b-liens{display:none}.b-tel{margin-left:auto}.b-long{display:none}.b-court{display:inline}}
-
-/* --- ouverture : texte à gauche, image qui sort du cadre à droite --- */
-.une{display:grid;grid-template-columns:minmax(0,46%) minmax(0,54%);align-items:center;gap:0;min-height:78vh}
-.une-txt{padding:3.5rem 3rem 3.5rem max(1.5rem,calc((100vw - 1180px)/2 + 1.5rem))}
-.une-titre{font-size:clamp(2.6rem,5.6vw,4.4rem);line-height:.98;letter-spacing:-.018em}
-.une-titre em{font-style:italic;color:var(--argile)}
-.une-sous{margin-top:1.2rem;font-size:1.05rem;max-width:34ch;color:var(--noir-doux)}
-.une-meta{margin-top:2rem;display:flex;flex-wrap:wrap;gap:.5rem 1.6rem;font-size:.9rem;align-items:baseline}
-.une-meta b{color:var(--noir);font-weight:700;font-size:1.15rem}
-.une-note{display:inline-flex;align-items:baseline;gap:.4rem;color:var(--gris)}
-.une-note i{font-style:normal;color:var(--argile);letter-spacing:.1em}
-.une-img{position:relative;min-height:340px}
-.une-img img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-
-/* --- la carte, en deux colonnes --- */
-.sect{padding-block:3.6rem}
-.sect + .sect{border-top:1px solid var(--trait)}
-.etiq{font-size:.7rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--argile);margin-bottom:.4rem}
-h2{font-size:clamp(1.9rem,4vw,2.7rem);line-height:1.05}
-.intro{margin-top:.5rem;max-width:50ch;color:var(--noir-doux)}
-
-.carte{margin-top:2rem;display:grid;grid-template-columns:1fr 1fr;gap:0 3.5rem}
-.pose{display:grid;grid-template-columns:1fr auto auto;gap:.1rem 1.2rem;align-items:baseline;padding-block:.95rem;border-bottom:1px solid var(--trait)}
-.p-nom{font-family:'Instrument Serif',serif;font-size:1.26rem;color:var(--noir);line-height:1.15}
-.p-det{display:block;font-size:.8rem;color:var(--gris);margin-top:.1rem}
-.p-duree{font-size:.94rem;font-weight:700;color:var(--argile);white-space:nowrap}
-.p-prix{font-family:'Instrument Serif',serif;font-size:1.26rem;color:var(--noir);white-space:nowrap;min-width:3.6rem;text-align:right}
-.carte-pied{margin-top:1.3rem;font-size:.92rem;color:var(--gris);max-width:60ch}
-
-/* --- mosaïque --- */
-.mosaique{display:grid;grid-template-columns:2fr 1fr 1fr;grid-template-rows:repeat(2,minmax(0,1fr));gap:.6rem;margin-top:2rem;height:clamp(380px,48vw,560px)}
-.mosaique figure{position:relative;overflow:hidden;margin:0}
-.mosaique figure:first-child{grid-row:1/3}
-.mosaique img{width:100%;height:100%;object-fit:cover}
-.mosaique figcaption{position:absolute;left:0;right:0;bottom:0;padding:.5rem .85rem;
-  font-size:.76rem;color:#F5F1EC;background:rgba(20,18,22,.88)}
-/* bandeau opaque plutot qu'un degrade : le contraste ne depend plus
-   de la luminosite de la photo, qui change d'un client a l'autre */
-
-/* --- équipe, bande horizontale --- */
-.equipe{display:grid;grid-template-columns:repeat(3,1fr);gap:2.2rem;margin-top:2rem}
-.pers-nom{font-family:'Instrument Serif',serif;font-size:1.5rem;color:var(--noir);line-height:1.1}
-.pers-role{font-size:.74rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--argile);margin-top:.3rem}
-.pers-txt{margin-top:.55rem;font-size:.93rem}
-.pers-jours{margin-top:.5rem;font-size:.82rem;color:var(--gris)}
-
-/* --- questions, en deux colonnes --- */
-.qs{margin-top:1.8rem;display:grid;grid-template-columns:1fr 1fr;gap:0 3.5rem}
-.qa{border-top:1px solid var(--trait);padding-block:1.05rem}
-.qa dt{font-family:'Instrument Serif',serif;font-size:1.2rem;color:var(--noir)}
-.qa dd{margin-top:.2rem;font-size:.94rem}
-
-/* --- contact --- */
-.contact{background:var(--noir);color:var(--sur-noir);padding-block:3.4rem}
-.contact h2{color:var(--sur-noir)}
-.contact .etiq{color:var(--sur-noir-accent)}
-.c-grille{display:grid;grid-template-columns:1fr 1fr;gap:2.6rem;margin-top:1.6rem}
-.c-tel{font-family:'Instrument Serif',serif;font-size:2.4rem;color:var(--sur-noir);text-decoration:none;line-height:1}
-.c-tel:hover{color:var(--sur-noir-accent)}
-.c-note{margin-top:.7rem;color:var(--sur-noir-doux);max-width:36ch;font-size:.95rem}
-.horaires div{display:flex;justify-content:space-between;gap:1.5rem;padding-block:.3rem;border-bottom:1px solid var(--sur-noir-doux);max-width:24rem;font-size:.93rem}
-.horaires div:last-child{border-bottom:0}
-.horaires b{color:var(--sur-noir);font-weight:600}
-.horaires span{color:var(--sur-noir-doux)}
-
-footer{background:var(--noir);color:var(--sur-noir-doux);font-size:.78rem;padding-block:1.4rem 2.2rem;border-top:1px solid var(--sur-noir-doux)}
-footer a{color:var(--sur-noir-accent)}
-
-@media(max-width:900px){
-  .une{grid-template-columns:1fr;min-height:0}
-  .une-txt{padding:2.4rem 1.5rem 2rem;order:2}
-  .une-img{order:1;min-height:clamp(240px,52vw,360px)}
-  .carte,.qs{grid-template-columns:1fr;gap:0}
-  .equipe{grid-template-columns:1fr;gap:1.5rem}
-  .mosaique{grid-template-columns:1fr 1fr;grid-template-rows:repeat(3,minmax(0,1fr));height:auto;aspect-ratio:1/1.15}
-  .mosaique figure:first-child{grid-row:1/2;grid-column:1/3}
-  .c-grille{grid-template-columns:1fr;gap:1.8rem}
+@media(max-width:940px){
+  .b-in{grid-template-columns:1fr auto}
+  .b-liens{display:none}
+  .b-long{display:none}.b-court{display:inline}
+  .b-tel{padding:.7rem 1.1rem}
 }
-@media(prefers-reduced-motion:reduce){*{transition:none!important}}
+
+/* --- ouverture : photo a gauche, panneau creme a droite, arche sur la couture --- */
+.hero{position:relative;display:grid;grid-template-columns:1fr 1fr;background:var(--creme);align-items:stretch}
+.hero-photo{position:relative;overflow:hidden;min-height:min(84vh,680px)}
+.hero-photo img{width:100%;height:100%;object-fit:cover}
+.hero-txt{display:flex;flex-direction:column;justify-content:center;padding:4.5rem 4rem 4.5rem 8.5rem}
+.sur-titre{font-size:.64rem;font-weight:600;letter-spacing:.34em;text-transform:uppercase;color:var(--gris);margin-bottom:1.6rem}
+.titre{font-size:clamp(2.6rem,4.6vw,4.1rem);line-height:1.08;font-weight:300}
+.titre em{font-style:italic}
+.accroche{margin-top:1.5rem;max-width:34ch;font-size:.97rem}
+.actions{display:flex;flex-wrap:wrap;gap:.7rem;margin-top:2.2rem}
+.bouton{font-size:.68rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;text-decoration:none;
+  padding:.95rem 1.7rem;border-radius:10px;background:var(--noir);color:var(--sur-noir);border:1px solid var(--noir)}
+.bouton.clair{background:transparent;color:var(--noir)}
+.bouton:hover{opacity:.82}
+.reperes{display:flex;flex-wrap:wrap;gap:.3rem 2rem;margin-top:2.4rem;padding-top:1.4rem;border-top:1px solid var(--trait);font-size:.85rem}
+.reperes b{color:var(--noir);font-weight:600}
+.etoiles{color:var(--noir);letter-spacing:.1em}
+
+.arche-hero{position:absolute;left:50%;top:50%;transform:translate(-60%,-50%);
+  width:min(26vw,320px);z-index:2;box-shadow:0 30px 60px -32px rgba(11,10,9,.45)}
+.arche-hero img{width:100%;height:auto;aspect-ratio:2/3;object-fit:cover}
+@media(max-width:1000px){
+  .hero{grid-template-columns:1fr}
+  .hero-photo{min-height:46vh}
+  .hero-txt{padding:3rem 1.6rem 3.5rem}
+  .arche-hero{position:static;transform:none;width:min(58vw,260px);margin:-5.5rem auto 1.8rem;box-shadow:none}
+}
+
+/* --- sections --- */
+.sect{padding-block:5rem}
+.sect.sable{background:var(--sable);color:var(--gris-sable)}
+.sect.sable h2,.sect.sable .serif{color:var(--sur-sable)}
+.chapeau{font-size:.64rem;font-weight:600;letter-spacing:.34em;text-transform:uppercase;color:var(--gris);margin-bottom:1rem}
+.sect.sable .chapeau{color:var(--gris-sable)}
+h2{font-size:clamp(2rem,3.6vw,3rem);line-height:1.1;font-weight:300}
+.intro{margin-top:1rem;max-width:52ch;font-size:.97rem}
+
+/* la carte : liste a gauche, arche a droite */
+.carte-grille{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,4fr);gap:4.5rem;align-items:center;margin-top:2.8rem}
+.ligne{display:grid;grid-template-columns:1fr auto auto;gap:.2rem 1.8rem;align-items:baseline;
+  padding-block:1.15rem;border-bottom:1px solid var(--trait)}
+.ligne:first-of-type{border-top:1px solid var(--trait)}
+.l-nom{font-family:'Cormorant Garamond',serif;font-size:1.5rem;font-weight:400;color:var(--noir);line-height:1.1}
+.l-det{grid-column:1;font-size:.84rem;color:var(--gris);margin-top:.15rem}
+.l-duree{font-size:.72rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--gris);white-space:nowrap}
+.l-prix{font-family:'Cormorant Garamond',serif;font-size:1.6rem;font-weight:500;color:var(--noir);white-space:nowrap;text-align:right}
+.reserve{margin-top:1.6rem;font-size:.9rem;max-width:56ch}
+.carte-photo{margin:0}
+.carte-photo img{width:100%;height:auto;aspect-ratio:3/4;object-fit:cover}
+.legende{margin-top:.9rem;font-size:.78rem;letter-spacing:.02em;color:var(--gris);text-align:center}
+@media(max-width:920px){.carte-grille{grid-template-columns:1fr;gap:2.6rem}.carte-photo{max-width:320px;margin-inline:auto}}
+
+/* la galerie : trois arches alignees */
+.galerie{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem;margin-top:3rem}
+.galerie figure{margin:0}
+.galerie img{width:100%;height:auto;aspect-ratio:3/4;object-fit:cover}
+.galerie figcaption{margin-top:.9rem;font-size:.78rem;color:var(--gris-sable);text-align:center}
+@media(max-width:760px){.galerie{grid-template-columns:1fr 1fr;gap:1.2rem}.galerie figure:nth-child(3){display:none}}
+
+/* l'equipe : pastille ronde, comme les icones du modele */
+.equipe-grille{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:4.5rem;align-items:center;margin-top:2.8rem}
+.equipe-photo img{width:100%;height:auto;aspect-ratio:3/4;object-fit:cover}
+.pers{display:grid;grid-template-columns:auto 1fr;gap:1.4rem;padding-block:1.5rem;border-bottom:1px solid var(--trait)}
+.pers:first-child{border-top:1px solid var(--trait)}
+.pastille{width:3.2rem;height:3.2rem;border-radius:50%;background:var(--sable);color:var(--sur-sable);
+  display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-weight:500}
+.p-nom{font-family:'Cormorant Garamond',serif;font-size:1.45rem;font-weight:400;color:var(--noir);line-height:1.1}
+.p-role{font-size:.68rem;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--gris);margin-top:.25rem}
+.p-txt{margin-top:.55rem;font-size:.92rem}
+.p-jours{margin-top:.4rem;font-size:.8rem;color:var(--gris)}
+@media(max-width:920px){.equipe-grille{grid-template-columns:1fr;gap:2.4rem}.equipe-photo{max-width:300px;margin-inline:auto}}
+
+/* questions */
+.qgrille{display:grid;grid-template-columns:1fr 1fr;gap:2.2rem 4rem;margin-top:2.8rem}
+.qa dt{font-family:'Cormorant Garamond',serif;font-size:1.32rem;font-weight:400;color:var(--noir);line-height:1.2}
+.qa dd{margin-top:.5rem;font-size:.93rem}
+@media(max-width:760px){.qgrille{grid-template-columns:1fr;gap:1.8rem}}
+
+/* contact : la marque au centre, comme un pied de page de faire-part */
+.contact{background:var(--sable);color:var(--gris-sable);padding-block:5rem;text-align:center}
+.contact .marque{font-family:'Cormorant Garamond',serif;font-size:clamp(2.4rem,5vw,3.6rem);font-weight:300;color:var(--sur-sable);line-height:1}
+.contact .marque small{display:block;font-family:'Urbanist',sans-serif;font-size:.62rem;font-weight:600;
+  letter-spacing:.42em;text-transform:uppercase;color:var(--gris-sable);margin-top:.5rem}
+.c-tel{display:inline-block;font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,4vw,2.8rem);
+  font-weight:400;color:var(--sur-sable);text-decoration:none;margin-top:2rem;line-height:1}
+.c-tel:hover{opacity:.7}
+.c-note{margin-top:.9rem;font-size:.92rem;max-width:40ch;margin-inline:auto}
+.horaires{margin-top:2.6rem;display:grid;grid-template-columns:repeat(4,auto);gap:1.6rem 2.6rem;justify-content:center;font-size:.86rem}
+.horaires b{display:block;font-size:.64rem;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--gris-sable);margin-bottom:.2rem}
+.horaires span{color:var(--sur-sable)}
+@media(max-width:700px){.horaires{grid-template-columns:1fr 1fr}}
+
+footer{background:var(--creme);color:var(--gris);font-size:.78rem;padding-block:2rem 2.6rem;text-align:center;border-top:1px solid var(--trait)}
+footer a{color:var(--noir)}
 
 /* --- bascule clair / sombre --- */
-.b-theme{display:inline-flex;align-items:center;justify-content:center;
-  width:2rem;height:2rem;padding:0;flex-shrink:0;cursor:pointer;
-  background:none;color:inherit;border:1px solid currentColor;border-radius:99px;opacity:.55}
-.b-theme:hover{opacity:1}
-@media(max-width:860px){.b-theme{margin-left:auto}.b-theme + .b-tel{margin-left:.5rem}}
+.b-theme{display:inline-flex;align-items:center;justify-content:center;width:2.1rem;height:2.1rem;padding:0;
+  flex-shrink:0;cursor:pointer;background:none;color:var(--gris);border:1px solid currentColor;border-radius:99px;opacity:.75}
+.b-theme:hover{opacity:1;color:var(--noir)}
+
+@media(prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
 </style>
 </head>
 <body>
@@ -160,124 +207,178 @@ footer a{color:var(--sur-noir-accent)}
 
 <nav class="barre" aria-label="Accès rapide">
   <div class="env b-in">
-    <a class="b-marque" href="#haut">Salon Lumière</a>
+    <a class="b-marque" href="#haut">Salon Lumière<small>Blaye</small></a>
     <div class="b-liens">
-      <a href="#carte">Tarifs &amp; durées</a>
+      <a href="#carte">La carte</a>
       <a href="#salon">Le salon</a>
       <a href="#equipe">L'équipe</a>
       <a href="#questions">Questions</a>
     </div>
-    <button class="b-theme" type="button" aria-label="Passer en thème sombre"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"></svg></button>
-    <a class="b-tel" href="tel:+33557000000"><span class="b-long">05 57 00 00 00</span><span class="b-court">Appeler</span></a>
+    <div class="b-droite">
+      <button class="b-theme" type="button" aria-label="Passer en thème sombre"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"></svg></button>
+      <a class="b-tel" href="tel:+33557000000"><span class="b-long">Prendre rendez-vous</span><span class="b-court">Appeler</span></a>
+    </div>
   </div>
 </nav>
 
-<section class="une" id="haut">
-  <div class="une-txt">
-    <h1 class="une-titre">Un balayage,<br/>c'est <em>trois heures</em>.</h1>
-    <p class="une-sous">On vous le dit avant que vous posiez votre journée. Tous nos temps sont affichés, comme les prix.</p>
-    <div class="une-meta">
+<header class="hero" id="haut">
+  <div class="hero-photo">
+    <img src="/img/unsplash-photo-1626383137804-ff908d2753a2.jpg" alt="La salle du salon, cours Vauban" width="1300" height="867" fetchpriority="high"/>
+  </div>
+  <figure class="arche-hero arche">
+    <img src="/img/unsplash-photo-1695527081848-1e46c06e6458.jpg" alt="Un balayage à main levée" width="760" height="1140" fetchpriority="high"/>
+  </figure>
+  <div class="hero-txt">
+    <div class="sur-titre">Coiffeur à Blaye · depuis 2014</div>
+    <h1 class="titre">Un balayage,<br/>c'est <em>trois heures.</em></h1>
+    <p class="accroche">On vous le dit avant que vous posiez votre journée. Tous nos temps sont affichés, comme les prix.</p>
+    <div class="actions">
+      <a class="bouton" href="tel:+33557000000">Prendre rendez-vous</a>
+      <a class="bouton clair" href="#carte">Voir la carte</a>
+    </div>
+    <div class="reperes">
       <span><b>05 57 00 00 00</b></span>
-      <span class="une-note"><i>★★★★★</i> 4,9 · 63 avis</span>
+      <span><span class="etoiles">★★★★★</span> 4,9 · 63 avis</span>
       <span>12 cours Vauban, Blaye</span>
     </div>
   </div>
-  <div class="une-img">
-    <img src="/img/unsplash-photo-1600948836101-f9ffda59d250.jpg" alt="Le salon"/>
-  </div>
-</section>
+</header>
 
 <section class="sect" id="carte">
   <div class="env">
-    <div class="etiq">La carte</div>
+    <div class="chapeau">La carte</div>
     <h2>Les prix, et le temps que ça prend</h2>
     <p class="intro">C'est la durée qui décide si vous venez sur une pause déjeuner ou s'il faut bloquer l'après-midi.</p>
 
-    <div class="carte">
-      <div class="pose"><div><span class="p-nom">Coupe femme</span><span class="p-det">Shampoing, coupe, brushing</span></div><div class="p-duree">45 min</div><div class="p-prix">32 €</div></div>
-      <div class="pose"><div><span class="p-nom">Coupe homme</span><span class="p-det">Shampoing, coupe, coiffage</span></div><div class="p-duree">30 min</div><div class="p-prix">19 €</div></div>
-      <div class="pose"><div><span class="p-nom">Coloration</span><span class="p-det">Application, pause, soin, brushing</span></div><div class="p-duree">1 h 45</div><div class="p-prix">58 €</div></div>
-      <div class="pose"><div><span class="p-nom">Balayage</span><span class="p-det">Main levée, patine, soin</span></div><div class="p-duree">3 h</div><div class="p-prix">72 €</div></div>
-      <div class="pose"><div><span class="p-nom">Soin profond</span><span class="p-det">Diagnostic puis soin ciblé</span></div><div class="p-duree">20 min</div><div class="p-prix">18 €</div></div>
-      <div class="pose"><div><span class="p-nom">Chignon, mariage</span><span class="p-det">Essai compris, un mois avant</span></div><div class="p-duree">1 h 15</div><div class="p-prix">55 €</div></div>
+    <div class="carte-grille">
+      <div>
+        <div class="ligne">
+          <span class="l-nom">Coupe femme</span><span class="l-duree">45 min</span><span class="l-prix">32 €</span>
+          <span class="l-det">Shampoing, coupe, brushing</span>
+        </div>
+        <div class="ligne">
+          <span class="l-nom">Coupe homme</span><span class="l-duree">30 min</span><span class="l-prix">19 €</span>
+          <span class="l-det">Shampoing, coupe, coiffage</span>
+        </div>
+        <div class="ligne">
+          <span class="l-nom">Coloration</span><span class="l-duree">1 h 45</span><span class="l-prix">58 €</span>
+          <span class="l-det">Application, pause, soin, brushing</span>
+        </div>
+        <div class="ligne">
+          <span class="l-nom">Balayage</span><span class="l-duree">3 h</span><span class="l-prix">72 €</span>
+          <span class="l-det">Main levée, patine, soin</span>
+        </div>
+        <div class="ligne">
+          <span class="l-nom">Soin profond</span><span class="l-duree">20 min</span><span class="l-prix">18 €</span>
+          <span class="l-det">Diagnostic puis soin ciblé</span>
+        </div>
+        <div class="ligne">
+          <span class="l-nom">Chignon, mariage</span><span class="l-duree">1 h 15</span><span class="l-prix">55 €</span>
+          <span class="l-det">Essai compris, un mois avant</span>
+        </div>
+        <p class="reserve">Sur cheveux très longs ou très épais, 20 à 30 minutes de plus et un supplément de produit — annoncé avant de commencer, jamais après. Et si votre cheveu ne tient pas la couleur demandée, on vous le dit au diagnostic plutôt que de vous la vendre.</p>
+      </div>
+      <figure class="carte-photo">
+        <div class="arche"><img src="/img/unsplash-photo-1700760934268-8aa0ef52ce0a.jpg" alt="Balayage en cours" width="850" height="1063" loading="lazy" decoding="async"/></div>
+        <figcaption class="legende">Balayage à main levée</figcaption>
+      </figure>
     </div>
-    <p class="carte-pied">Sur cheveux très longs ou très épais, 20 à 30 minutes de plus et un supplément de produit — annoncé avant de commencer, jamais après. Et si votre cheveu ne tient pas la couleur demandée, on vous le dit au diagnostic plutôt que de vous la vendre.</p>
   </div>
 </section>
 
-<section class="sect" id="salon">
+<section class="sect sable" id="salon">
   <div class="env">
-    <div class="etiq">Le salon</div>
+    <div class="chapeau">Le salon</div>
     <h2>Trois postes, cours Vauban</h2>
     <p class="intro">Pas plus, pour ne pas vous faire attendre pendant un temps de pause.</p>
 
-    <div class="mosaique">
-      <figure><img src="/img/unsplash-photo-1580618672591-eb180b1a973f.jpg" alt="Le salon, vue d'ensemble"/><figcaption>La salle, cours Vauban</figcaption></figure>
-      <figure><img src="/img/unsplash-photo-1700760934268-8aa0ef52ce0a.jpg" alt="Un balayage en cours"/><figcaption>Balayage à main levée</figcaption></figure>
-      <figure><img src="/img/unsplash-photo-1781450090585-1a511b7066d9.jpg" alt="Coupe et coiffage"/><figcaption>Coupe et brushing</figcaption></figure>
-      <figure><img src="/img/unsplash-photo-1600948836101-f9ffda59d250.jpg" alt="Le bac à shampoing"/><figcaption>Les bacs</figcaption></figure>
+    <div class="galerie">
+      <figure><div class="arche"><img src="/img/unsplash-photo-1580618672591-eb180b1a973f.jpg" alt="La salle, vue d'ensemble" width="680" height="454" loading="lazy" decoding="async"/></div><figcaption>La salle, cours Vauban</figcaption></figure>
+      <figure><div class="arche"><img src="/img/unsplash-photo-1600948836101-f9ffda59d250.jpg" alt="Les fauteuils et les miroirs" width="680" height="472" loading="lazy" decoding="async"/></div><figcaption>Les bacs</figcaption></figure>
+      <figure><div class="arche"><img src="/img/unsplash-photo-1746723378067-83a345ff3160.jpg" alt="Les produits en rayon" width="680" height="453" loading="lazy" decoding="async"/></div><figcaption>Les soins que l'on vend</figcaption></figure>
     </div>
   </div>
 </section>
 
 <section class="sect" id="equipe">
   <div class="env">
-    <div class="etiq">L'équipe</div>
+    <div class="chapeau">L'équipe</div>
     <h2>Qui vous coiffe</h2>
     <p class="intro">Demandez quelqu'un en particulier au moment du rendez-vous. C'est normal d'avoir ses habitudes.</p>
 
-    <div class="equipe">
+    <div class="equipe-grille">
+      <figure class="equipe-photo">
+        <div class="arche"><img src="/img/unsplash-photo-1599011176306-4a96f1516d4d.jpg" alt="Taille de barbe au rasoir" width="850" height="1275" loading="lazy" decoding="async"/></div>
+        <figcaption class="legende">Le poste barbier, le mardi et du jeudi au samedi</figcaption>
+      </figure>
       <div>
-        <div class="pers-nom">Camille</div>
-        <div class="pers-role">Couleur &amp; balayage</div>
-        <p class="pers-txt">Quinze ans de métier, dont huit à Bordeaux. C'est elle qui tranche quand on hésite sur une décoloration.</p>
-        <div class="pers-jours">Mardi au samedi</div>
-      </div>
-      <div>
-        <div class="pers-nom">Léa</div>
-        <div class="pers-role">Coupe &amp; coiffage</div>
-        <p class="pers-txt">Coupes courtes et dégradés. La plus rapide du salon — dites-le en appelant si vous êtes pressé.</p>
-        <div class="pers-jours">Mercredi au samedi</div>
-      </div>
-      <div>
-        <div class="pers-nom">Sofiane</div>
-        <div class="pers-role">Barbier &amp; coupe homme</div>
-        <p class="pers-txt">Taille au rasoir, dégradés américains. Il prend les enfants — il a la patience.</p>
-        <div class="pers-jours">Mardi, jeudi, vendredi, samedi</div>
+        <div class="pers">
+          <div class="pastille" aria-hidden="true">C</div>
+          <div>
+            <div class="p-nom">Camille</div>
+            <div class="p-role">Couleur &amp; balayage</div>
+            <p class="p-txt">Quinze ans de métier, dont huit à Bordeaux. C'est elle qui tranche quand on hésite sur une décoloration.</p>
+            <div class="p-jours">Mardi au samedi</div>
+          </div>
+        </div>
+        <div class="pers">
+          <div class="pastille" aria-hidden="true">L</div>
+          <div>
+            <div class="p-nom">Léa</div>
+            <div class="p-role">Coupe &amp; coiffage</div>
+            <p class="p-txt">Coupes courtes et dégradés. La plus rapide du salon — dites-le en appelant si vous êtes pressé.</p>
+            <div class="p-jours">Mercredi au samedi</div>
+          </div>
+        </div>
+        <div class="pers">
+          <div class="pastille" aria-hidden="true">S</div>
+          <div>
+            <div class="p-nom">Sofiane</div>
+            <div class="p-role">Barbier &amp; coupe homme</div>
+            <p class="p-txt">Taille au rasoir, dégradés américains. Il prend les enfants — il a la patience.</p>
+            <div class="p-jours">Mardi, jeudi, vendredi, samedi</div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
-<section class="sect" id="questions">
+<section class="sect" id="questions" style="background:var(--blanc)">
   <div class="env">
-    <div class="etiq">Questions</div>
+    <div class="chapeau">Questions</div>
     <h2>Ce qu'on nous demande</h2>
-    <dl class="qs">
-      <div class="qa"><dt>« Vous prenez sans rendez-vous ? »</dt><dd>En semaine souvent, surtout le matin. Le samedi non, c'est complet dès le mercredi.</dd></div>
-      <div class="qa"><dt>« Combien d'attente pour un balayage ? »</dt><dd>Une dizaine de jours. Trois semaines en juin et en décembre.</dd></div>
-      <div class="qa"><dt>« Vous faites les enfants ? »</dt><dd>Oui, 14 €. Et on ne facture pas si ça se passe mal et qu'on doit s'arrêter.</dd></div>
-      <div class="qa"><dt>« Je peux venir avec ma photo ? »</dt><dd>Venez-en avec trois. On voit mieux ce qui vous plaît, et on vous dit ce que ça donnera sur votre cheveu.</dd></div>
+    <dl class="qgrille">
+      <div class="qa">
+        <dt>« Vous prenez sans rendez-vous ? »</dt>
+        <dd>En semaine souvent, surtout le matin. Le samedi non, c'est complet dès le mercredi.</dd>
+      </div>
+      <div class="qa">
+        <dt>« Combien d'attente pour un balayage ? »</dt>
+        <dd>Une dizaine de jours. Trois semaines en juin et en décembre.</dd>
+      </div>
+      <div class="qa">
+        <dt>« Vous faites les enfants ? »</dt>
+        <dd>Oui, 14 €. Et on ne facture pas si ça se passe mal et qu'on doit s'arrêter.</dd>
+      </div>
+      <div class="qa">
+        <dt>« Je peux venir avec ma photo ? »</dt>
+        <dd>Venez-en avec trois. On voit mieux ce qui vous plaît, et on vous dit ce que ça donnera sur votre cheveu.</dd>
+      </div>
     </dl>
   </div>
 </section>
 
 <section class="contact" id="contact">
   <div class="env">
-    <div class="etiq">Contact</div>
-    <h2>Prendre rendez-vous</h2>
-    <div class="c-grille">
-      <div>
-        <a class="c-tel" href="tel:+33557000000">05 57 00 00 00</a>
-        <p class="c-note">Si on est les mains dans une couleur, laissez un message — on rappelle dans la demi-heure.</p>
-        <p class="c-note">12 cours Vauban, 33390 Blaye</p>
-      </div>
-      <div class="horaires">
-        <div><b>Mardi, mercredi</b> <span>9 h – 18 h</span></div>
-        <div><b>Jeudi, vendredi</b> <span>9 h – 19 h</span></div>
-        <div><b>Samedi</b> <span>8 h 30 – 17 h</span></div>
-        <div><b>Dimanche et lundi</b> <span>fermé</span></div>
-      </div>
+    <div class="marque">Salon Lumière<small>12 cours Vauban · Blaye</small></div>
+    <a class="c-tel" href="tel:+33557000000">05 57 00 00 00</a>
+    <p class="c-note">Si on est les mains dans une couleur, laissez un message — on rappelle dans la demi-heure.</p>
+    <div class="horaires">
+      <div><b>Mardi, mercredi</b><span>9 h – 18 h</span></div>
+      <div><b>Jeudi, vendredi</b><span>9 h – 19 h</span></div>
+      <div><b>Samedi</b><span>8 h 30 – 17 h</span></div>
+      <div><b>Dimanche, lundi</b><span>Fermé</span></div>
     </div>
   </div>
 </section>
