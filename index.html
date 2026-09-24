@@ -77,7 +77,8 @@ img{max-width:100%;display:block}
 .demo b{color:var(--sur-noir)}
 
 /* --- barre : marque a gauche, liens au centre, action a droite --- */
-.barre{position:sticky;top:0;z-index:30;background:var(--creme);border-bottom:1px solid var(--trait)}
+.barre{position:sticky;top:0;z-index:40;background:var(--creme);border-bottom:1px solid var(--trait);transition:box-shadow .25s ease}
+.barre.fixe{box-shadow:0 6px 20px -14px rgba(11,10,9,.5)}
 .b-in{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:1.5rem;min-height:4.2rem}
 .b-marque{font-family:'Cormorant Garamond',serif;font-size:1.6rem;font-weight:500;color:var(--noir);
   text-decoration:none;line-height:1;justify-self:start}
@@ -86,6 +87,7 @@ img{max-width:100%;display:block}
 .b-liens{display:flex;gap:2rem;justify-self:center}
 .b-liens a{font-size:.82rem;font-weight:500;color:var(--gris);text-decoration:none;padding-block:.3rem;border-bottom:1px solid transparent}
 .b-liens a:hover{color:var(--noir);border-bottom-color:var(--noir)}
+.b-liens a.actif{color:var(--noir);border-bottom-color:var(--noir)}
 .b-droite{display:flex;align-items:center;gap:.8rem;justify-self:end}
 .b-tel{font-size:.68rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;
   background:var(--noir);color:var(--sur-noir);text-decoration:none;padding:.85rem 1.5rem;border-radius:10px;white-space:nowrap}
@@ -451,6 +453,39 @@ footer a{color:var(--noir)}
     try{ localStorage.setItem("ns-theme", t); }catch(e){}
     peindre(t);
   });
+})();
+</script>
+
+<script>
+/* Barre verrouillee et reperage de section.
+   - .fixe : fond plus opaque des qu'on a quitte le haut de page.
+   - .actif : le lien de la section qu'on est en train de lire.
+   Tout est en supplement : sans JavaScript la barre reste collante
+   (c'est du CSS) et les liens fonctionnent normalement. */
+(function(){
+  var barre = document.querySelector('.barre');
+  if(barre){
+    var marquer = function(){ barre.classList.toggle('fixe', window.scrollY > 24); };
+    marquer();
+    addEventListener('scroll', marquer, {passive:true});
+  }
+  var liens = [].slice.call(document.querySelectorAll('.b-liens a[href^="#"]'));
+  if(!liens.length || !('IntersectionObserver' in window)) return;
+  var parSection = {};
+  liens.forEach(function(a){
+    var id = a.getAttribute('href').slice(1);
+    var s = document.getElementById(id);
+    if(s) parSection[id] = a;
+  });
+  var vues = {};
+  var obs = new IntersectionObserver(function(entrees){
+    entrees.forEach(function(e){ vues[e.target.id] = e.isIntersecting ? e.intersectionRatio : 0; });
+    var meilleur = null, score = 0;
+    Object.keys(vues).forEach(function(id){ if(vues[id] > score){ score = vues[id]; meilleur = id; } });
+    liens.forEach(function(a){ a.classList.remove('actif'); });
+    if(meilleur && parSection[meilleur]) parSection[meilleur].classList.add('actif');
+  }, {rootMargin:'-20% 0px -60% 0px', threshold:[0,.25,.5,1]});
+  Object.keys(parSection).forEach(function(id){ obs.observe(document.getElementById(id)); });
 })();
 </script>
 </body>
