@@ -176,6 +176,24 @@ h2{font-size:clamp(2rem,3.6vw,3rem);line-height:1.1;font-weight:300}
 .qa dd{margin-top:.5rem;font-size:.93rem}
 @media(max-width:760px){.qgrille{grid-template-columns:1fr;gap:1.8rem}}
 
+/* --- les avis : destination du QR code imprime sur les cartons.
+       Le lien Google est offert a tout le monde ; le canal direct
+       est un second chemin, pas un barrage. --- */
+.avis{background:var(--noir);color:var(--sur-noir);padding-block:4.5rem}
+.avis .env{display:grid;grid-template-columns:auto minmax(0,1fr);gap:3.5rem;align-items:center}
+.avis h2{color:var(--sur-noir)}
+.avis .texte{color:var(--sur-noir);opacity:.88;margin-top:.7rem;max-width:58ch;font-size:.95rem}
+.avis-etiq{font-size:.64rem;font-weight:600;letter-spacing:.34em;text-transform:uppercase;color:var(--sable)}
+.note b{display:block;font-family:'Cormorant Garamond',serif;font-size:4rem;color:var(--sur-noir);line-height:.85;font-weight:400}
+.note .et{color:var(--sable);letter-spacing:.16em;font-size:1rem;margin-top:.5rem}
+.note span{display:block;font-size:.64rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--sur-noir);opacity:.72;margin-top:.5rem}
+.chemins{display:flex;flex-wrap:wrap;gap:.7rem;margin-top:1.7rem}
+.chemin{font-size:.68rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;text-decoration:none;
+  padding:.95rem 1.7rem;border-radius:10px;border:1px solid var(--sur-noir);color:var(--sur-noir)}
+.chemin.plein{background:var(--sable);border-color:var(--sable);color:var(--sur-sable)}
+.chemin:hover{opacity:.82}
+@media(max-width:760px){.avis .env{grid-template-columns:1fr;gap:1.8rem}}
+
 /* contact : la marque au centre, comme un pied de page de faire-part */
 .contact{background:var(--sable);color:var(--gris-sable);padding-block:5rem;text-align:center}
 .contact .marque{font-family:'Cormorant Garamond',serif;font-size:clamp(2.4rem,5vw,3.6rem);font-weight:300;color:var(--sur-sable);line-height:1}
@@ -212,6 +230,7 @@ footer a{color:var(--noir)}
       <a href="#carte">La carte</a>
       <a href="#salon">Le salon</a>
       <a href="#equipe">L'équipe</a>
+      <a href="#avis">Avis</a>
       <a href="#questions">Questions</a>
     </div>
     <div class="b-droite">
@@ -366,6 +385,25 @@ footer a{color:var(--noir)}
         <dd>Venez-en avec trois. On voit mieux ce qui vous plaît, et on vous dit ce que ça donnera sur votre cheveu.</dd>
       </div>
     </dl>
+  </div>
+</section>
+
+<section class="avis" id="avis">
+  <div class="env">
+    <div class="note">
+      <b>4,9</b>
+      <div class="et">★★★★★</div>
+      <span>63 avis Google</span>
+    </div>
+    <div>
+      <div class="avis-etiq">Votre avis</div>
+      <h2>Vous sortez du salon ?</h2>
+      <p class="texte">Un petit carton avec un QR code est glissé dans le sachet. Il mène ici. Si la coupe vous plaît, deux lignes sur Google aident la prochaine à se décider. Si quelque chose ne va pas, dites-le-nous directement — on préfère le rattraper que le lire en ligne.</p>
+      <div class="chemins">
+        <a class="chemin plein" href="https://search.google.com/local/writereview?placeid=PLACE_ID_DU_CLIENT" target="_blank" rel="noopener">Laisser un avis Google</a>
+        <a class="chemin" href="tel:+33557000000">Nous dire ce qui ne va pas</a>
+      </div>
+    </div>
   </div>
 </section>
 
