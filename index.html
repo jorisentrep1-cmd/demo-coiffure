@@ -61,8 +61,11 @@
 
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth;scroll-padding-top:4.2rem}
+/* Base de lecture : 1rem = 17 px, texte courant a 16 px. Les clients de ces
+   artisans lisent souvent sur telephone, et pas tous avec de bons yeux. */
+html{font-size:106.25%}
 body{background:var(--creme);color:var(--gris);font-family:'Urbanist',system-ui,sans-serif;
-  font-size:15px;line-height:1.62;-webkit-font-smoothing:antialiased}
+  font-size:16px;line-height:1.62;-webkit-font-smoothing:antialiased}
 h1,h2,h3,.serif{font-family:'Cormorant Garamond',Georgia,serif;color:var(--noir);font-weight:400;letter-spacing:0}
 a{color:var(--noir)}
 :focus-visible{outline:2px solid var(--focus);outline-offset:3px}
@@ -123,9 +126,13 @@ img{max-width:100%;display:block}
 .arche-hero img{width:100%;height:auto;aspect-ratio:2/3;object-fit:cover}
 @media(max-width:1000px){
   .hero{grid-template-columns:1fr}
-  .hero-photo{min-height:46vh}
-  .hero-txt{padding:3rem 1.6rem 3.5rem}
-  .arche-hero{position:static;transform:none;width:min(58vw,260px);margin:-5.5rem auto 1.8rem;box-shadow:none}
+  /* L'arche se pose en medaillon dans le coin de la photo au lieu de
+     s'empiler dessous : empilee, elle repoussait le titre et le bouton de
+     rendez-vous hors du premier ecran du telephone. */
+  .hero-photo{grid-row:1;grid-column:1;min-height:34vh}
+  .arche-hero{grid-row:1;grid-column:1;align-self:end;justify-self:end;position:relative;left:auto;top:auto;transform:none;
+    width:min(32vw,150px);margin:0 1.2rem -1.2rem 0}
+  .hero-txt{grid-row:2;padding:3rem 1.6rem 3.5rem}
 }
 
 /* --- sections --- */
