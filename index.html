@@ -153,6 +153,13 @@ h2{font-size:clamp(2rem,3.6vw,3rem);line-height:1.1;font-weight:300}
 .l-det{grid-column:1;font-size:.84rem;color:var(--gris);margin-top:.15rem}
 .l-duree{font-size:.72rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--gris);white-space:nowrap}
 .l-prix{font-family:'Cormorant Garamond',serif;font-size:1.6rem;font-weight:500;color:var(--noir);white-space:nowrap;text-align:right}
+/* la duree en trait : toutes les lignes sur la meme echelle de trois heures,
+   pour voir d'un coup d'oeil qu'un balayage prend neuf fois un soin */
+.l-barre{grid-column:1 / 3;height:4px;margin-top:.7rem}
+.l-barre span{display:block;height:100%;border-radius:99px;background:var(--focus);width:calc(var(--min) / 180 * 100%);
+  transform-origin:left center;transition:transform 1.1s cubic-bezier(.16,1,.3,1)}
+.carte-liste.pret .l-barre span{transform:scaleX(0)}
+.carte-liste.pret.vu .l-barre span{transform:none}
 .reserve{margin-top:1.6rem;font-size:.9rem;max-width:56ch}
 .carte-photo{margin:0}
 .carte-photo img{width:100%;height:auto;aspect-ratio:3/4;object-fit:cover}
@@ -279,30 +286,36 @@ footer a{color:var(--noir)}
     <p class="intro">C'est la durée qui décide si vous venez sur une pause déjeuner ou s'il faut bloquer l'après-midi.</p>
 
     <div class="carte-grille">
-      <div>
+      <div class="carte-liste">
         <div class="ligne">
           <span class="l-nom">Coupe femme</span><span class="l-duree">45 min</span><span class="l-prix">32 €</span>
           <span class="l-det">Shampoing, coupe, brushing</span>
+          <span class="l-barre" aria-hidden="true"><span style="--min:45"></span></span>
         </div>
         <div class="ligne">
           <span class="l-nom">Coupe homme</span><span class="l-duree">30 min</span><span class="l-prix">19 €</span>
           <span class="l-det">Shampoing, coupe, coiffage</span>
+          <span class="l-barre" aria-hidden="true"><span style="--min:30"></span></span>
         </div>
         <div class="ligne">
           <span class="l-nom">Coloration</span><span class="l-duree">1 h 45</span><span class="l-prix">58 €</span>
           <span class="l-det">Application, pause, soin, brushing</span>
+          <span class="l-barre" aria-hidden="true"><span style="--min:105"></span></span>
         </div>
         <div class="ligne">
           <span class="l-nom">Balayage</span><span class="l-duree">3 h</span><span class="l-prix">72 €</span>
           <span class="l-det">Main levée, patine, soin</span>
+          <span class="l-barre" aria-hidden="true"><span style="--min:180"></span></span>
         </div>
         <div class="ligne">
           <span class="l-nom">Soin profond</span><span class="l-duree">20 min</span><span class="l-prix">18 €</span>
           <span class="l-det">Diagnostic puis soin ciblé</span>
+          <span class="l-barre" aria-hidden="true"><span style="--min:20"></span></span>
         </div>
         <div class="ligne">
           <span class="l-nom">Chignon, mariage</span><span class="l-duree">1 h 15</span><span class="l-prix">55 €</span>
           <span class="l-det">Essai compris, un mois avant</span>
+          <span class="l-barre" aria-hidden="true"><span style="--min:75"></span></span>
         </div>
         <p class="reserve">Sur cheveux très longs ou très épais, 20 à 30 minutes de plus et un supplément de produit — annoncé avant de commencer, jamais après. Et si votre cheveu ne tient pas la couleur demandée, on vous le dit au diagnostic plutôt que de vous la vendre.</p>
       </div>
@@ -460,6 +473,20 @@ footer a{color:var(--noir)}
     try{ localStorage.setItem("ns-theme", t); }catch(e){}
     peindre(t);
   });
+})();
+</script>
+
+<script>
+/* Les traits de duree se deroulent une fois, a l'arrivee de la carte.
+   Sans JavaScript, ou avec le mouvement reduit, ils sont deja en place. */
+(function(){
+  var l = document.querySelector('.carte-liste');
+  if(!l || !('IntersectionObserver' in window) || matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  l.classList.add('pret');
+  var o = new IntersectionObserver(function(e){
+    if(e[0].isIntersecting){ l.classList.add('vu'); o.disconnect(); }
+  }, {threshold: .25});
+  o.observe(l);
 })();
 </script>
 
